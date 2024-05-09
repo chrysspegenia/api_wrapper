@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "icons#index"
+
+  resources :memes, except: :show
+  get 'memes/generate_meme'
+
 end

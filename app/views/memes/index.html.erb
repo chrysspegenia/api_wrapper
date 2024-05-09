@@ -1,0 +1,17 @@
+<% if flash[:error] %>
+  <p>Error: <%= flash[:error] %></p>
+<% end %>
+
+<% @memes.each do |meme| %>
+  <div><%= meme %></div>
+<% end %>
+
+<% @memes.each do |meme| %>
+  <section style="display:flex; align-items:center; justify-content:center; width:100%; height: 500px; margin-top:100px;">
+    <div>
+      <h1>ID: <%= meme["id"] %></h1>
+      <h1>Name: <%= meme["name"] %></h1>
+    </div>
+    <img src="<%= meme["url"] %>" style="width:#{meme['width']}; height:#{meme['height']}; transform:scale(0.5);" alt="meme">
+  </section>
+<% end %>
