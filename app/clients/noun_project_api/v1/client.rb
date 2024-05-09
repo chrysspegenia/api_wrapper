@@ -17,11 +17,10 @@ class NounProjectApi::V1::Client
     )
   end
 
-  def icon(id, **params)
+  def icon(id)
     request(
       method: :get,
-      endpoint: "v2/icon/#{id}",
-      params: params
+      endpoint: "v2/icon/#{id}"
     )
   end
 
