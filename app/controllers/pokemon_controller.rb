@@ -13,6 +13,7 @@ class PokemonController < ApplicationController
       @pokemon = client.pokemon(pokemon_name)
     end
 
+    # Displays information about a specific move
     def show_move
       move_name = params[:id] #params[:id] contains the Pokémon name or ID
       @move = client.move(move_name)
