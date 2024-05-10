@@ -16,7 +16,7 @@ class PokemonController < ApplicationController
     #displays type data, moves, and pokemon of that type
     def typedex
       type_name = params[:id]
-      @type = client.type_data(type_name)
+      @type = client.type(type_name)
     end
 
     private

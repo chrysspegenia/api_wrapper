@@ -34,7 +34,7 @@ class PokeApi::V1::Client
       {'name' => response['name'], 'id' => response['id']}
     end
 
-    def type_data(type)
+    def type(type)
       response = request(
         method: :get,
         endpoint: "type/#{type}",
