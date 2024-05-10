@@ -11,10 +11,12 @@
         </div>
 
         <% @type['moves'].each do |move| %>
+            <%= link_to(show_move_path(move['name']), style: "text-decoration: none;") do %>
                 <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
                     <span style="width:200px"><%= move['name'] %></span>
                     <span><%= move['url'] %></span>
                 </div>
+            <% end %>
         <% end %>
     </section>
 
