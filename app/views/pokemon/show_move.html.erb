@@ -1,0 +1,31 @@
+<h1>Move Data:</h1>
+
+<h2>Name: <%= @move['name'] %></h2>
+<h3>ID: <%= @move['id'] %></h3>
+<h3>Type: <%= @move['type'] %></h3>
+<h3>Power: <%= @move['power'] %></h3>
+<h3>PP: <%= @move['pp'] %></h3>
+<h3>Accuracy: <%= @move['accuracy'] %></h3>
+<h3>Effect: 
+    <% @move['effect'].each do |effect| %>
+        <div><%= effect['effect'] %></div>
+        <div><%= effect['short_effect'] %></div>
+    <% end %>
+</h3>
+
+<section>
+    <h3>Pokemon able to learn this move:</h3>
+    <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+        <h4>Pokemon</h4>
+        <h4>Data Url</h4>
+    </div>
+
+    <% @move['learned_by_pokemon'].each do |pokemon| %>
+        <%= link_to(pokemon_path(pokemon['name']), style: "text-decoration: none;") do %>
+            <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+                <span style="width:200px"><%= pokemon['name'] %></span>
+                <span><%= pokemon['url'] %></span>
+            </div>
+        <% end %>
+    <% end %>
+</section>

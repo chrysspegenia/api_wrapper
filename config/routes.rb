@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :pokemon, only: :show
   get 'pokemon/pokedex/:id', to: 'pokemon#pokedex', as: 'pokedex'
   get 'pokemon/typedex/:id', to: 'pokemon#typedex', as: 'typedex'
+  get 'pokemon/show_move/:id', to: 'pokemon#show_move', as: 'show_move'
 
 end

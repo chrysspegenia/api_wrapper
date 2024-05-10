@@ -13,6 +13,11 @@ class PokemonController < ApplicationController
       @pokemon = client.pokemon(pokemon_name)
     end
 
+    def show_move
+      move_name = params[:id] #params[:id] contains the Pokémon name or ID
+      @move = client.move(move_name)
+    end
+
     #displays type data, moves, and pokemon of that type
     def typedex
       type_name = params[:id]
