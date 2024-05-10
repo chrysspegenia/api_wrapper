@@ -1,0 +1,42 @@
+
+<h1>Name: <%= @pokemon["name"] %></h1>
+<h2>Id: <%= @pokemon["id"] %></h2>
+
+<h2>Types:</h2>
+<% @pokemon["types"].each do |type| %>
+    <h3>-- <%= type["type"]["name"]%></h3>
+<% end %>
+
+<% sprite_data = @pokemon["sprites"] %>
+<section style="display:flex;">
+    
+    <span style="display:flex; flex-direction:column;">
+        <h4>Official Artwork</h4>
+        <img src="<%= sprite_data["other"]["official-artwork"]["front_default"] %>">
+    </span>
+
+    <span>
+        <h4>Default Sprite</h4>
+        <span>
+            <label>Front</label>
+            <img src="<%= sprite_data["front_default"] %>">
+        </span>
+        <span>
+            <label>Back</label>
+            <img src="<%= sprite_data["back_default"] %>">
+        </span>
+    </span>
+
+    <span>
+        <h4>Shiny Sprite</h4>
+        <span>
+            <label>Front</label>
+            <img src="<%= sprite_data["front_shiny"] %>">
+        </span>
+        <span>
+            <label>Back</label>
+            <img src="<%= sprite_data["back_shiny"] %>">
+        </span>
+    </span>
+
+</section>

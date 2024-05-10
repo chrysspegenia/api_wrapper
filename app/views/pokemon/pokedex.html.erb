@@ -1,0 +1,19 @@
+<h1>Pokedex</h1>
+<h2>Region Name: <%= @region_data["name"] %></h2>
+<h2>Region Id: <%= @region_data["id"] %></h2>
+
+<div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+    <h4>Entry Number</h4>
+    <h4>Pokemon</h4>
+    <h4>Data Url</h4>
+</div>
+
+<% @pokemon_list.each do |pokemon| %>
+    <%= link_to(pokemon_path(pokemon['pokemon_species']['name']), style: "text-decoration: none;") do %>
+        <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+            <span style="width:100px"><%= pokemon['entry_number'] %></span>
+            <span style="width:100px"><%= pokemon['pokemon_species']['name'] %></span>
+            <span><%= pokemon['pokemon_species']['url'] %></span>
+        </div>
+    <% end %>
+<% end %>

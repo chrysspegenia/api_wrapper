@@ -1,0 +1,37 @@
+<h1>Typedex</h1>
+<h2>Type: <%= @type["name"] %></h2>
+<h2>Type Id: <%= @type["id"] %></h2>
+
+<main style="display:flex; gap:100px; flex-wrap:wrap">
+    <section>
+        <h3>Moves of this type</h3>
+        <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+            <h4>Move Name</h4>
+            <h4>Data Url</h4>
+        </div>
+
+        <% @type['moves'].each do |move| %>
+                <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+                    <span style="width:200px"><%= move['name'] %></span>
+                    <span><%= move['url'] %></span>
+                </div>
+        <% end %>
+    </section>
+
+    <section>
+        <h3>Pokemon of this type</h3>
+        <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+            <h4>Pokemon</h4>
+            <h4>Data Url</h4>
+        </div>
+
+        <% @type['pokemon'].each do |pokemon| %>
+            <%= link_to(pokemon_path(pokemon['pokemon']['name']), style: "text-decoration: none;") do %>
+                <div style="display:flex; gap:2em; width:fit-content; color:rgb(0,0,0);">
+                    <span style="width:200px"><%= pokemon['pokemon']['name'] %></span>
+                    <span><%= pokemon['pokemon']['url'] %></span>
+                </div>
+            <% end %>
+        <% end %>
+    </section>
+</main>

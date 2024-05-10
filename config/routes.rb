@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "memes#index"
-
   resources :memes, except: :show
   get 'memes/generate_meme'
+
+  resources :pokemon, only: :show
+  get 'pokemon/pokedex/:id', to: 'pokemon#pokedex', as: 'pokedex'
+  get 'pokemon/typedex/:id', to: 'pokemon#typedex', as: 'typedex'
 
 end
